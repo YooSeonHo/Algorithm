@@ -9,7 +9,6 @@ dp = [0] * 100001
 for i in range(len(coins)):
     dp[coins[i]] = 1
 
-#dp[1] dp[5] dp[12] = 1
 
 for i in range(1,m+1):
     if dp[i] == 1:
@@ -28,6 +27,3 @@ if dp[m] == 0 :
     print(-1)
 else :
     print(dp[m])
-            
-
-# 1인 애들을 0으로 만들어 버리는거, 
