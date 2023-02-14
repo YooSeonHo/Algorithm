@@ -6,5 +6,6 @@
 </ul>
 
 
-+) https://github.com/ndb796/python-for-coding-test/issues/69
-https://www.acmicpc.net/workbook/view/5825
++) 
+<p>https://github.com/ndb796/python-for-coding-test/issues/69</p>
+<p>https://www.acmicpc.net/workbook/view/5825</p>
