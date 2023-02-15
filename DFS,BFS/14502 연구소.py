@@ -61,13 +61,7 @@ for q in range(n):
                                 if yeon[t][y] == 0:
                                     yeon[t][y] = 1
                                     bfs()
-
                                     yeon[t][y] = 0
-
                         yeon[e][r] = 0
-
             yeon[q][w] = 0
 print(max(res))
-
-
-

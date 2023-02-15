@@ -73,59 +73,116 @@
 
 # print(sec)
 
-from collections import deque
+# from collections import deque
 
-dx = [0,1,0,-1]
-dy = [1,0,-1,0]
-dir = 0
-n = int(input())
-k = int(input())
+# dx = [0,1,0,-1]
+# dy = [1,0,-1,0]
+# dir = 0
+# n = int(input())
+# k = int(input())
 
-game = [[0] * (n+1) for _ in range(n+1)]
-game[1][1] = 1
-q = deque([])
-q.append([1,1])
-apple = [[0] * (n+1) for _ in range(n+1)]
+# game = [[0] * (n+1) for _ in range(n+1)]
+# game[1][1] = 1
+# q = deque([])
+# q.append([1,1])
+# apple = [[0] * (n+1) for _ in range(n+1)]
 
-for _ in range(k):
-    a,b = map(int,input().split())
-    apple[a][b] = 1
+# for _ in range(k):
+#     a,b = map(int,input().split())
+#     apple[a][b] = 1
 
-l = int(input())
-change = []
+# l = int(input())
+# change = []
 
-for _ in range(l):
-    a,b = input().split()
-    change.append((int(a),b))
+# for _ in range(l):
+#     a,b = input().split()
+#     change.append((int(a),b))
 
-sec = 0
-secCnt = 0
+# sec = 0
+# secCnt = 0
 
-while q :
-    print(q)
-    x,y = q.popleft()
+# while q :
+#     print(q)
+#     x,y = q.popleft()
 
-    nx = x + dx[dir]
-    ny = y + dy[dir]
-    if apple[nx][ny] == 1:
-        q.append([nx,ny])
-        q.append([x,y])
-    else :
-        q.append([nx,ny])
+#     nx = x + dx[dir]
+#     ny = y + dy[dir]
+#     if apple[nx][ny] == 1:
+#         q.append([nx,ny])
+#         q.append([x,y])
+#     else :
+#         q.append([nx,ny])
 
-    if 1 <= nx <= n and 1 <= ny <= n:
-        break
-    elif game[nx][ny] == 2:
-        break
+#     if 1 <= nx <= n and 1 <= ny <= n:
+#         break
+#     elif game[nx][ny] == 2:
+#         break
 
-    sec += 1
-    if sec == change[secCnt][0]:
-        if change[secCnt][1] == 'D' :
-            dir = (dir+1) % 4
-        elif change[secCnt][1] =='L':
-            if dir != 0 :
-                dir -=1
-            else :
-                dir = 3
+#     sec += 1
+#     if sec == change[secCnt][0]:
+#         if change[secCnt][1] == 'D' :
+#             dir = (dir+1) % 4
+#         elif change[secCnt][1] =='L':
+#             if dir != 0 :
+#                 dir -=1
+#             else :
+#                 dir = 3
 
-        secCnt += 1
+#         secCnt += 1
+
+# from collections import deque
+
+# dx = [0,1,0,-1]
+# dy = [1,0,-1,0]
+# dir = 0
+
+# n = int(input())
+# k = int(input())
+# game = [[0] * (n+1) for _ in range(n+1)]
+
+# for _ in range(k):
+#     a,b = map(int,input().split())
+#     game[a][b] = 1
+
+# l = int(input())
+# change = []
+
+# for _ in range(l):
+#     a,b = input().split()
+#     change.append((int(a),b))
+
+# q = deque([])
+# q.append((1,1,dir))
+# game[1][1] = 1
+# sec = 0
+# changeCnt = 0
+
+# while q :
+#     x,y,direction = q.popleft()
+#     nx = x + dx[direction]
+#     ny = y + dy[direction]
+#     sec += 1
+
+#     if nx < 1 or nx > n or ny < 1 or ny > n :
+#         break
+#     else :
+#         game[nx][ny] += 1
+#         q.append((nx,ny))
+        
+#         if sec == change[changeCnt][0] :
+#             if change[changeCnt][1] == 'D' :
+#                 direction = (direction+1) % 4
+#             elif change[changeCnt][1] =='L':
+#                 if direction != 0 :
+#                     direction -=1
+#                 else :
+#                     direction = 3
+
+#             changeCnt += 1
+        
+
+#         if game[nx][ny] == 2:
+#             q.append((x,y))
+#             game[nx][ny] -= 1
+#         else :
+#             game[x][y] -= 1
