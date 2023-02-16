@@ -35,6 +35,9 @@
 #                 #     elif 
 
 
+
+#pypy로 해야 시간초과 안난당.......
+
 n = int(input())
 game = [0] * (n+1)
 ## index = row , value = column
