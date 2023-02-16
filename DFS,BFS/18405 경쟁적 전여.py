@@ -17,7 +17,9 @@ def bfs():
         for j in range(n):
             if arr[i][j] != 0 :
                 temp.append((arr[i][j],i,j,0))
+
     temp.sort(key = lambda x : x[0])
+    
     for i in temp :
         q.append(i)
 
