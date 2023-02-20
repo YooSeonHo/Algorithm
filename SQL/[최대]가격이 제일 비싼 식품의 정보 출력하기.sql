@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+SELECT *
+FROM FOOD_PRODUCT f1
+WHERE f1.PRICE >= ALL (
+    SELECT f2.PRICE
+    FROM FOOD_PRODUCT f2
+)
