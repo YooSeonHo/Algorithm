@@ -1,0 +1,24 @@
+# -- 코드를 입력하세요
+SELECT MONTH(START_DATE) AS MONTH, CAR_ID, COUNT(*) AS RECORDS
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE CAR_ID IN (
+    SELECT CAR_ID
+    FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+    WHERE DATE_FORMAT(START_DATE,'%Y-%m-%d') BETWEEN '2022-08-01' AND '2022-10-31'
+    GROUP BY CAR_ID
+    HAVING COUNT(*) >= 5
+    )
+-- #이 기간동안 5회이상 빌렸던 차의 기록을 다 뽑아 와서
+GROUP BY CAR_ID, MONTH
+-- #카 아이디, 먼스로 묶은 다음에 횟수 출력
+HAVING MONTH BETWEEN '08' AND '10'
+-- #왜 또 기간 조건이 있어야 하냐? -> 저 기간동안 5회이상 빌린 차들이 다른 월에도 빌렸던 기록까지 다 있는거 현재는 -> 그래서 기간 조건 한번더 ㅈㄴ어렵넹
+ORDER BY MONTH, CAR_ID DESC
+
+
+-- # SELECT *
+-- # FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+-- # WHERE '2022-08'<=DATE_FORMAT(START_DATE,'%Y-%m') <= '2022-10'
+-- # GROUP BY CAR_ID
+-- # HAVING COUNT(*) >= 5
+-- # ORDER BY MONTH, CAR_ID DESC
