@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+-- out에는 있는데 in에는 없는 동물
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_OUTS o
+WHERE o.ANIMAL_ID NOT IN (
+    SELECT ANIMAL_ID
+    FROM ANIMAL_INS
+)
+ORDER BY ANIMAL_ID
