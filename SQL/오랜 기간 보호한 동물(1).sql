@@ -1,0 +1,10 @@
+-- 코드를 입력하세요
+-- in중에 out에 없는 애들 
+SELECT i.NAME,i.DATETIME
+FROM ANIMAL_INS i
+WHERE i.ANIMAL_ID NOT IN (
+    SELECT o.ANIMAL_ID
+    FROM ANIMAL_OUTS o
+)
+ORDER BY i.DATETIME
+LIMIT 3
