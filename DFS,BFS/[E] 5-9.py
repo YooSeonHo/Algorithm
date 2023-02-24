@@ -5,6 +5,7 @@ def bfs(graph,start,visited):
     q = deque([start])
     visited[start] = True
 
+
     while q:
         v = q.popleft()
         print(v,end=' ')
@@ -13,6 +14,8 @@ def bfs(graph,start,visited):
             if not visited[i]:
                 q.append(i)
                 visited[i] = True
+
+#넣고 방문처리!!!!! 까묵지 말장 ㅋ
 
 graph = [
     [],
