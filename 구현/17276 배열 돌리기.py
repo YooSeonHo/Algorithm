@@ -46,3 +46,5 @@ for _ in range(t):
 
         for i in arr :
             print(*i,sep=' ')
+
+            

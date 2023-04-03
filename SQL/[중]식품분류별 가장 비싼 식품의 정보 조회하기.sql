@@ -5,6 +5,8 @@
 -- # HAVING CATEGORY = '과자' or CATEGORY = '국' or CATEGORY = '김치' or CATEGORY = '식용유'
 -- # ORDER BY MAX_PRICE DESC
 
+-- 이대로 하면 PRODUCT_NAME이 이상한게 나옴 -> 미리 제일 비싼애들만 남겨놓고 거기서 이름을 뽑아야 해서 밑에 코드 쓰는거
+
 
 SELECT CATEGORY,PRICE AS MAX_PRICE,PRODUCT_NAME
 FROM (

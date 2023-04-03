@@ -1,9 +1,9 @@
-#크루스칼 알고리즘 (최소 신장 트리 만들기(최소 비용으로 모든 정점 연결))
+import sys
+input = sys.stdin.readline
 
 def find_parent(parent,x):
     if parent[x] != x :
         parent[x] = find_parent(parent,parent[x])
-
     return parent[x]
 
 def union_parent(parent,a,b):
@@ -14,24 +14,23 @@ def union_parent(parent,a,b):
         parent[b] = a
     else :
         parent[a] = b
-        
-v,e = map(int,input().split())    
-parent = [0] * (v+1)
-for i in range(1,v+1):
-    parent[i] = i
+
+n = int(input())
+m = int(input())
 
 edges = []
-res = 0
-
-for _ in range(e):
+parent = [i for i in range(n+1)]
+for _ in range(m):
     a,b,cost = map(int,input().split())
     edges.append((cost,a,b))
 
 edges.sort()
+res = 0
 
-for edge in edges :
-    cost,a,b = edge
-    if find_parent(parent,a) != find_parent(parent,b):
+for e in edges :
+    cost,a,b = e
+
+    if find_parent(parent,a) != find_parent(parent,b) :
         union_parent(parent,a,b)
         res += cost
 
