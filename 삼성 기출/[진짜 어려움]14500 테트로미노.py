@@ -11,7 +11,8 @@ max_value = max(map(max,arr))
 
 def dfs(y,x,ans,cnt):
     global res
-
+    #만약 남은 블록을 다 최대값으로 더해도 현재 최대값보다 작으면 걍 조기 종료
+    #이런 조기 종료 규칙이 진심 시간 복잡도 확 줄여줌..
     if res >= ans + max_value * (4-cnt) : 
         return
     if cnt == 4 :
