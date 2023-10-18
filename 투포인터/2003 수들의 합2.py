@@ -26,3 +26,15 @@ while start < n :
 
 
 print(cnt)
+
+##############################################
+sub_total = 0
+for start in range(n) :
+    while sub_total < m and e < n :
+        sub_total += arr[end]
+        end += 1
+    if sub_total == m :
+        cnt += 1
+    sub_total -= arr[start]
+
+###############################################
