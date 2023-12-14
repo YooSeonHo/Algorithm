@@ -29,6 +29,6 @@ for i in range(1,len(idx)+1) :
             tmp = tmp[:j] + tmp[j+1:]
         res.append(tmp)
 
-#중복 제거
+#중복 제거 sort method => none 반환됨
 res = sorted(list(set(res)))
 print(*res,sep='\n')
