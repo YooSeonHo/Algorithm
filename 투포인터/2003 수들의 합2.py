@@ -19,7 +19,7 @@ while start < n :
     elif sum(arr[start:end+1]) < m :
         end += 1
     # m보다 작고, end가 n이 됐으면 결코 m보다 더 작아질 일은 없어서 이 조건문 실행이 안될거!
-    
+    # s > e => arr = [], sum(arr) = 0 => 자동으로 e += 1 된당
     else :
         cnt += 1
         start += 1
