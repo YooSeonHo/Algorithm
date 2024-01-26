@@ -25,6 +25,13 @@ ans = INF
 for d in dp[-1] : 
     ans = min(min(d),ans)
 print(ans)
+
+
+
+
+
+
+
 # for i in range(1,n) :
 #     for j in range(m) :
 #         tmp = []
