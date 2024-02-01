@@ -1,0 +1,25 @@
+def solution(data, col, row_begin, row_end):
+    # col 기준 오름차순 정렬 => [:][col]
+    # 동일값이라면, 첫 번째 컬럼 값을 기준으로 내림차순 => [:][0]
+    # S_i = i번째 행의 각 값을 i로 나눈 나머지 합 = [i][:]
+    # row_begin ≤ i ≤ row_end 인 모든 S_i 누적
+    # 얘네를 XOR한 값 반환
+    
+    #1. 정렬하기
+    col -= 1
+    data.sort(key = lambda x : (x[col],-x[0]))
+    
+    #2. s_i 구하기
+    s = []
+    m = len(data[0])
+    for i in range(row_begin,row_end+1) :
+        tmp = 0
+        for j in range(m) :
+            tmp += data[i-1][j] % i
+        s.append(tmp)
+    
+    # s를 가지고 XOR 하기
+    res = 0
+    for bit in s :
+        res = res ^ bit
+    return res
