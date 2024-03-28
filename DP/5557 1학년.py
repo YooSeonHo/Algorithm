@@ -2,18 +2,18 @@
 n = int(input())
 nums = list(map(int,input().split()))
 res = nums[-1]
-nums.pop()
 
 dp = [[0] * 21 for _ in range(n)]
-dp[1][nums[0]] = 1
+dp[0][nums[0]] = 1
 
-for i in range(2,n) :
+for i in range(1,n-1) :
     for j in range(21) : 
-        if 0<= j + nums[i-1] <= 20 :
-            dp[i][j] += dp[i-1][j+nums[i-1]]
-        
-        if 0<= j - nums[i-1] <= 20 :
-            dp[i][j] += dp[i-1][j-nums[i-1]]
+        if dp[i-1][j] : 
+            if 0<= j + nums[i] <= 20 :
+                dp[i][j+nums[i]] += dp[i-1][j]
+            
+            if 0<= j - nums[i] <= 20 :
+                dp[i][j-nums[i]] += dp[i-1][j]
 
         
-print(dp[n-1][res])
+print(dp[n-2][res])
